@@ -20,7 +20,6 @@ const Menu = () => {
   const {getBanner,isLoadingBanner ,getBannerError} = useSelector ((state)=> state.services )
   const {getService,isServiceLoading ,isServiceError} = useSelector ((state)=> state.services )
   const {getBalance,isBalanceLoading ,isBalanceError} = useSelector ((state)=> state.services )
-  console.log(getService)
 
   useEffect(() => {
     dispatch(getProfileThunk());
@@ -29,12 +28,12 @@ const Menu = () => {
     dispatch(getBalanceThunk());
 
   }, [dispatch]);
-  const handleClick = () => {
-    dispatch(getService({ code: services.service_code, name: services.service_name, icon: services.service_icon,tarif : services.service_tariff}));
+  // const handleClick = () => {
+  //   dispatch(getService({ code: services.service_code, name: services.service_name, icon: services.service_icon,tarif : services.service_tariff}));
 
-    // Navigasi ke halaman topup
-    navigate('/topup');
-  };
+  //   // Navigasi ke halaman topup
+  //   navigate('/topup');
+  // };
 
     const toggleSaldoVisibility = () => {
       setIsSaldoVisible(!isSaldoVisible);
@@ -104,7 +103,7 @@ const Menu = () => {
                   src={service.service_icon ?? ''} 
                   alt={service.service_icon ?? ''} 
                   style={{ width: '50px', height: '50px' }} 
-                  onClick={handleClick(service)}
+                  // onClick={handleClick(service)}
                 />
               </div>
               <h6 className="fw-small">{service.service_name ?? '-'}</h6>

@@ -24,14 +24,7 @@ const initialState = {
 export const serviceSlice = createSlice({
     name: "services",
     initialState,
-    reducers: {
-      setSelectedService: (state, action) => {
-        state.selectedService = action.payload;  // Menyimpan layanan yang dipilih
-      },
-      resetSelectedService: (state) => {
-        state.selectedService = null;  // Menghapus data layanan yang dipilih
-      },
-    },
+    reducers: {},
     extraReducers: (builder) => {
       builder
         // Handling getBannerThunk cases
@@ -84,5 +77,4 @@ export const serviceSlice = createSlice({
         });
     },
 });
-export const { setSelectedService, resetSelectedService } = serviceSlice.actions;
 export default serviceSlice.reducer;
