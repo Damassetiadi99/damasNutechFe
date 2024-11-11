@@ -44,7 +44,6 @@ const Profile = () => {
     };
 
     const handleEditProfile = () => {
-        // Redirect to profile edit page
         alert("Redirecting to edit profile page...");
     };
 
@@ -87,7 +86,7 @@ const Profile = () => {
                         <Form.Group className="mb-3 position-relative" controlId="email">
                             <FontAwesomeIcon 
                                 icon={faAt} 
-                                className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted" 
+                                className="position-absolute top-50 start-0 translate-middle-y ms-4 mt-5 text-muted" 
                                 style={{ zIndex: 1 }} 
                             />
                             <Form.Control

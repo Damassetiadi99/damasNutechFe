@@ -34,3 +34,20 @@ import axios from "axios";
       throw err.response.data; 
     });
   };
+
+  // export const Transactions = (data) => {
+  //   const token = Cookies.get("token"); 
+  //   return axios.post(`${API_BASE_URL}${API_ENDPOINTS.PostTransaction}`,data, {
+  //     headers: {
+  //      'Authorization': `Bearer ${token}`,
+  //      'Content-Type' : 'application/json'
+  //     },
+  //   })
+  //   .then((res) => {
+  //     return res.data; 
+  //     console.log(data)
+  //   })
+  //   .catch((err) => {
+  //     throw err.response.data; 
+  //   });
+  // };

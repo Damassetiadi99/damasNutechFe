@@ -10,8 +10,12 @@ const initialState = {
     postTopup : {},
     istopUpLoading : false,
     istopUpSucces : false,
-    istopUpError : {}
+    istopUpError : {},
     
+    postTransactions : {},
+    isTransactionsLoading : false,
+    isTransactionsSucces : false,
+    isTransactionError : {}
 };
 
 export const serviceSlice = createSlice({
@@ -44,11 +48,24 @@ export const serviceSlice = createSlice({
           state.istopUpLoading = true;
           state.istopUpSucces = false;
         })
-        .addCase(topUpThunk.rejected, (state, action) => {
-          state.isgetTransactionsHLoading = false;
-          state.istopUpError = action.payload;
-          state.istopUpSucces = false;
-        })
+        // .addCase(transactionsThunk.rejected, (state, action) => {
+        //   state.isTransactionsLoading = false;
+        //   state.isTransactionsSucces = action.payload;
+        //   state.isTransactionsSucces = false;
+        // }) .addCase(transactionsThunk.fulfilled, (state, action) => {
+        //   state.isTransactionsLoading = false;
+        //   state.postTopup = action.payload;
+        //   state.isTransactionsSucces = true;
+        // })
+        // .addCase(transactionsThunk.pending, (state) => {
+        //   state.isTransactionsLoading = true;
+        //   state.isTransactionsSucces = false;
+        // })
+        // .addCase(transactionsThunk.rejected, (state, action) => {
+        //   state.isTransactionsLoading = false;
+        //   state.isTransactionError = action.payload;
+        //   state.isTransactionsSucces = false;
+        // })
         
     },
 });

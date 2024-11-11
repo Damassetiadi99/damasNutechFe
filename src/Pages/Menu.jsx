@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +16,7 @@ import profile1 from '../assets/Profile Photo.png';
 
 const Menu = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [isSaldoVisible, setIsSaldoVisible] = useState(false);
   const { getProfile, isLoadinggetProfileThunk, getProfileThunkError } = useSelector((state) => state.auth);
   const {getBanner,isLoadingBanner ,getBannerError} = useSelector ((state)=> state.services )
@@ -28,12 +30,9 @@ const Menu = () => {
     dispatch(getBalanceThunk());
 
   }, [dispatch]);
-  // const handleClick = () => {
-  //   dispatch(getService({ code: services.service_code, name: services.service_name, icon: services.service_icon,tarif : services.service_tariff}));
-
-  //   // Navigasi ke halaman topup
-  //   navigate('/topup');
-  // };
+  const handleClick = (service) => {
+    navigate('/Payment', { state: { service } });
+  };
 
     const toggleSaldoVisibility = () => {
       setIsSaldoVisible(!isSaldoVisible);
@@ -93,7 +92,7 @@ const Menu = () => {
       </Row>
 
       {/* Service Icons Section */}
-      <Row className="text-center">
+      <Row className="text-center">x``
       {Array.isArray(getService) && getService.length > 0 ? (
         getService.map((service, index) => (
           <Col xs={4} md={1} key={index} className="text-center my-4">
@@ -103,7 +102,7 @@ const Menu = () => {
                   src={service.service_icon ?? ''} 
                   alt={service.service_icon ?? ''} 
                   style={{ width: '50px', height: '50px' }} 
-                  // onClick={handleClick(service)}
+                  onClick={() => handleClick(service)}
                 />
               </div>
               <h6 className="fw-small">{service.service_name ?? '-'}</h6>

@@ -40,29 +40,6 @@ const Transactions = ({transaction}) => {
     setLimit((prevLimit) => prevLimit + 5); // Tambahkan 5 ke limit saat tombol diklik
   };
 
- const transactions = [
-  { id: 1, description: 'Topup saldo', amount: 100000, Tanggal: '12 Agustus 2024', type: 'income' }, // Pemasukan
-  { id: 2, description: 'Pembayaran listrik', amount: 200000, Tanggal: '5 Mei 2024', type: 'expense' }, // Pengeluaran
-  { id: 3, description: 'Pulsa prabayar', amount: 30000, Tanggal: '12 Juni 2024', type: 'expense' }, // Pengeluaran
-  { id: 4, description: 'Topup game', amount: 400, Tanggal: '4 Agustus 2024', type: 'income' }, // Pemasukan
-  { id: 5, description: 'Zakat', amount: 500, Tanggal: '10 Desember 2023', type: 'expense' }, // Pengeluaran
-  { id: 6, description: 'Gaji bulan Agustus', amount: 5000000, Tanggal: '31 Agustus 2024', type: 'income' }, // Pemasukan
-  { id: 7, description: 'Belanja bulanan', amount: 800000, Tanggal: '15 September 2024', type: 'expense' }, // Pengeluaran
-  { id: 8, description: 'Transfer teman', amount: 250000, Tanggal: '20 September 2024', type: 'income' }, // Pemasukan
-  { id: 9, description: 'Biaya sekolah anak', amount: 1500000, Tanggal: '10 Oktober 2024', type: 'expense' }, // Pengeluaran
-  { id: 10, description: 'Pemasukan dari investasi', amount: 2000000, Tanggal: '5 November 2024', type: 'income' }, // Pemasukan
-  { id: 11, description: 'Bayar cicilan motor', amount: 600000, Tanggal: '12 November 2024', type: 'expense' }, // Pengeluaran
-  { id: 12, description: 'Bonus akhir tahun', amount: 1000000, Tanggal: '20 Desember 2024', type: 'income' }, // Pemasukan
-  { id: 13, description: 'Pajak tahunan', amount: 1200000, Tanggal: '25 Desember 2024', type: 'expense' }, // Pengeluaran
-  { id: 14, description: 'Uang saku bulanan', amount: 300000, Tanggal: '1 Januari 2025', type: 'income' }, // Pemasukan
-  { id: 15, description: 'Biaya perjalanan dinas', amount: 500000, Tanggal: '10 Januari 2025', type: 'expense' }, // Pengeluaran
-  { id: 16, description: 'Pemasukan dari freelance', amount: 700000, Tanggal: '15 Januari 2025', type: 'income' }, // Pemasukan
-  { id: 17, description: 'Perbaikan mobil', amount: 1000000, Tanggal: '20 Januari 2025', type: 'expense' }, // Pengeluaran
-  { id: 18, description: 'Hadiah Natal', amount: 400000, Tanggal: '25 Desember 2025', type: 'income' }, // Pemasukan
-  { id: 19, description: 'Biaya internet bulanan', amount: 400000, Tanggal: '5 Februari 2025', type: 'expense' }, // Pengeluaran
-  { id: 20, description: 'Pemasukan dari penjualan barang', amount: 900000, Tanggal: '15 Februari 2025', type: 'income' }, // Pemasukan
-];
-
   return (
     <Container className="mt-5 pt-5">
       {/* Greeting and Balance Section */}
