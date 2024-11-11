@@ -19,7 +19,6 @@ function Login() {
   const {isLoadingLogin,loginError,isLoginSuccess} = useSelector((state)=>state.auth)
 
   useEffect(() => {
-    console.log("Login success:", isLoginSuccess);
     if (isLoginSuccess) {
       navigate("/menu");
     }

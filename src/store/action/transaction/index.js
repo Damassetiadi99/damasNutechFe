@@ -1,5 +1,5 @@
-import { getTransactionH , topUp} from "../../../service/transaction/index";
 import { createAction ,createAsyncThunk } from "@reduxjs/toolkit";
+import { getTransactionH , topUp, Transactions} from "../../../service/transaction/index";
 import Cookies from "js-cookie";
 
   export const getTransactionhThunk = createAsyncThunk(
@@ -8,7 +8,6 @@ import Cookies from "js-cookie";
       try {
         const token = Cookies.get("token");
         const response = await getTransactionH(token); // Panggil API untuk mendapatkan profil
-        console.log("Profile Response:", response.data); // Log respons profil
         return response.data; // Pastikan mengembalikan data yang benar
       } catch (e) {
         console.log("Profile Fetch Error:", e); // Log error saat fetch profil
@@ -23,7 +22,6 @@ import Cookies from "js-cookie";
       try {
         const token = Cookies.get("token");
         const response = await topUp(_); // Panggil API untuk mendapatkan profil
-        console.log("Profile Response:", response.data); // Log respons profil
         return response.data; 
       } catch (e) {
         console.log("Profile Fetch Error:", e); // Log error saat fetch profil
@@ -31,5 +29,16 @@ import Cookies from "js-cookie";
       }
     }
   );
-  
- 
+
+  export const postTransactionThunk = createAsyncThunk(
+    'transaction/postTransaction',
+    async (transactionData, { rejectWithValue }) => {
+      try {
+        const response = await Transactions(transactionData);
+        return response;
+        console.log(response)
+      } catch (error) {
+        return rejectWithValue(error);
+      }
+    }
+  );

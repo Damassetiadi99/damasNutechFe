@@ -12,7 +12,6 @@ import SIMS from '../../assets/Logo.png'
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const { isLoadingRegister, registerError, isRegisterSuccess } = useSelector((state) => state.auth);
@@ -26,9 +25,7 @@ function Register() {
     confirmPassword: "",
   });
 
-  // State for password match error and visibility
   const [passwordError, setPasswordError] = useState("");
-  
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };

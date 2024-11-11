@@ -54,7 +54,7 @@ const Profile = () => {
     };
 
     return (
-        <Container className="m-5">
+        <Container  style={{marginTop : '8rem'}}>
             <div className="text-center">
                 {/* Profile Image */}
                 <div className="position-relative d-inline-block">

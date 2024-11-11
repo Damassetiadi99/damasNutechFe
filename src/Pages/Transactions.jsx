@@ -1,47 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Card, Button, ButtonGroup } from 'react-bootstrap';
-import { getBalance } from '../service/services';
-import { FaDirections, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { getProfileThunk } from '../store/action/auth';
-
-import { Form, Row, Col } from 'react-bootstrap';
-import profile1 from '../assets/Profile Photo.png'
 import { useDispatch,useSelector } from 'react-redux';
 import { getBalanceThunk } from '../store/action/services';
 import { getTransactionhThunk } from '../store/action/transaction';
-const nama = 'Damas Setiadi Sukardi'
+import profile1 from '../assets/Profile Photo.png'
 
 const Transactions = ({transaction}) => {
-  
   const dispatch = useDispatch()
-  const {getBalance,isBalanceLoading ,isBalanceError} = useSelector ((state)=> state.services )
-  const {getTransactionH,isgetTransactionsHLoading} = useSelector ((state)=> state.transaction )
-  const { getProfile, isLoadinggetProfileThunk, getProfileThunkError } = useSelector((state) => state.auth);
-
-  console.log(getTransactionH?.records)
-
+  const {getBalance } = useSelector ((state)=> state.services )
+  const {getTransactionH} = useSelector ((state)=> state.transaction )
+  const { getProfile} = useSelector((state) => state.auth);
   const [isSaldoVisible, setIsSaldoVisible] = useState(false);
   const toggleSaldoVisibility = () => {
     setIsSaldoVisible(!isSaldoVisible);
     
   };
+  
   useEffect(() => {
     dispatch(getTransactionhThunk());
     dispatch(getBalanceThunk());
     dispatch(getProfileThunk());
-
-    
 
   }, [dispatch]);
 
  const [limit,setLimit] = useState(4)
   const handleShowMore = () => {
     console.log('test');
-    setLimit((prevLimit) => prevLimit + 5); // Tambahkan 5 ke limit saat tombol diklik
+    setLimit((prevLimit) => prevLimit + 5); 
   };
 
   return (
-    <Container className="mt-5 pt-5">
+    <Container className='p-4'  style={{marginTop : '8rem'}}>
       {/* Greeting and Balance Section */}
       <Row className="mb-4 col-lg-12">
         <Col lg={4} className="d-flex flex-column align-items-start">
@@ -126,8 +117,6 @@ const Transactions = ({transaction}) => {
           </Button>
         </div>
       )}
-     
-     
     </Container>
   );
 };

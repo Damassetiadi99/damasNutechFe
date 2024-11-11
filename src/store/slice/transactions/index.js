@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getTransactionhThunk ,topUpThunk } from "../../action/transaction";
+import { getTransactionhThunk ,topUpThunk ,postTransactionThunk} from "../../action/transaction";
 
 const initialState = {
     getTransactionH: {},
@@ -48,24 +48,25 @@ export const serviceSlice = createSlice({
           state.istopUpLoading = true;
           state.istopUpSucces = false;
         })
-        // .addCase(transactionsThunk.rejected, (state, action) => {
-        //   state.isTransactionsLoading = false;
-        //   state.isTransactionsSucces = action.payload;
-        //   state.isTransactionsSucces = false;
-        // }) .addCase(transactionsThunk.fulfilled, (state, action) => {
-        //   state.isTransactionsLoading = false;
-        //   state.postTopup = action.payload;
-        //   state.isTransactionsSucces = true;
-        // })
-        // .addCase(transactionsThunk.pending, (state) => {
-        //   state.isTransactionsLoading = true;
-        //   state.isTransactionsSucces = false;
-        // })
-        // .addCase(transactionsThunk.rejected, (state, action) => {
-        //   state.isTransactionsLoading = false;
-        //   state.isTransactionError = action.payload;
-        //   state.isTransactionsSucces = false;
-        // })
+        .addCase(topUpThunk.rejected, (state, action) => {
+          state.istopUpLoading = false;
+          state.istopUpError = action.payload;
+          state.istopUpSucces = false;
+
+        }) .addCase(postTransactionThunk.fulfilled, (state, action) => {
+          state.isTransactionsLoading = false;
+          state.postTopup = action.payload;
+          state.isTransactionsSucces = true;
+        })
+        .addCase(postTransactionThunk.pending, (state) => {
+          state.isTransactionsLoading = true;
+          state.isTransactionsSucces = false;
+        })
+        .addCase(postTransactionThunk.rejected, (state, action) => {
+          state.isTransactionsLoading = false;
+          state.isTransactionError = action.payload;
+          state.isTransactionsSucces = false;
+        })
         
     },
 });

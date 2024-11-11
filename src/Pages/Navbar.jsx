@@ -4,14 +4,10 @@ import SIMS from '../assets/Logo.png';
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
-  // Check if the token exists in cookies
   const token = Cookies.get('token');
-
-  // If there's no token, don't render the navbar
   if (!token) return null;
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-transparent fixed-top mb-5">
+    <nav className="navbar navbar-expand-lg navbar-light bg-transparent fixed-top mb-5 border">
       <div className="container">
         <Link className="navbar-brand text-dark fw-medium" to="/menu">
           <img src={SIMS} alt="Icon" style={{ width: '40px', height: '40px', marginRight: '8px' }} />

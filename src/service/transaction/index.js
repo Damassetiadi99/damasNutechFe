@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import { API_BASE_URL, API_ENDPOINTS} from "../../utils/endpoint";
 import axios from "axios";
 
-
   export const getTransactionH = () => {
     const token = Cookies.get("token"); 
     return axios.get(`${API_BASE_URL}${API_ENDPOINTS.GetTransaction}`, {
@@ -35,19 +34,19 @@ import axios from "axios";
     });
   };
 
-  // export const Transactions = (data) => {
-  //   const token = Cookies.get("token"); 
-  //   return axios.post(`${API_BASE_URL}${API_ENDPOINTS.PostTransaction}`,data, {
-  //     headers: {
-  //      'Authorization': `Bearer ${token}`,
-  //      'Content-Type' : 'application/json'
-  //     },
-  //   })
-  //   .then((res) => {
-  //     return res.data; 
-  //     console.log(data)
-  //   })
-  //   .catch((err) => {
-  //     throw err.response.data; 
-  //   });
-  // };
+  export const Transactions = (data) => {
+    const token = Cookies.get("token"); 
+    return axios.post(`${API_BASE_URL}${API_ENDPOINTS.PostTransaction}`,data, {
+      headers: {
+       'Authorization': `Bearer ${token}`,
+       'Content-Type' : 'application/json'
+      },
+    })
+    .then((res) => {
+      return res.data; 
+      console.log(res)
+    })
+    .catch((err) => {
+      throw err.response.data; 
+    });
+  };

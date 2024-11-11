@@ -18,10 +18,10 @@ const Menu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const [isSaldoVisible, setIsSaldoVisible] = useState(false);
-  const { getProfile, isLoadinggetProfileThunk, getProfileThunkError } = useSelector((state) => state.auth);
-  const {getBanner,isLoadingBanner ,getBannerError} = useSelector ((state)=> state.services )
-  const {getService,isServiceLoading ,isServiceError} = useSelector ((state)=> state.services )
-  const {getBalance,isBalanceLoading ,isBalanceError} = useSelector ((state)=> state.services )
+  const { getProfile,isLoadinggetProfileThunk} = useSelector((state) => state.auth);
+  const {getBanner} = useSelector ((state)=> state.services )
+  const {getService} = useSelector ((state)=> state.services )
+  const {getBalance} = useSelector ((state)=> state.services )
 
   useEffect(() => {
     dispatch(getProfileThunk());
@@ -41,7 +41,7 @@ const Menu = () => {
     return <div>Loading...</div>;
   }
   return (
-    <Container className="mt-5 pt-5">
+    <Container className="" style={{marginTop : '8rem'}}>
       <Row className="mb-4 col-lg-12">
         <Col lg={4} className="d-flex flex-column align-items-start">
           <img
@@ -71,7 +71,7 @@ const Menu = () => {
                   ))
                 )
               ) : (
-                <span>Loading...</span> // Menampilkan "Loading..." jika saldo belum tersedia
+                <span>Loading...</span>
               )}
             </p>
             <div className="text-start">
@@ -86,13 +86,12 @@ const Menu = () => {
               </Button>
             </div>
           </Card.Body>
-
           </Card>
         </Col>
       </Row>
 
       {/* Service Icons Section */}
-      <Row className="text-center">x``
+      <Row className="text-center">
       {Array.isArray(getService) && getService.length > 0 ? (
         getService.map((service, index) => (
           <Col xs={4} md={1} key={index} className="text-center my-4">
@@ -113,8 +112,6 @@ const Menu = () => {
         <p>No services available</p> // fallback jika tidak ada data
       )}
     </Row>
-
-
       {/* Promo Banners Section */}
       <p className="my-4 fw-bold fs-6">Temukan Promo Menarik</p>
       <Swiper

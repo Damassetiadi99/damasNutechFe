@@ -79,8 +79,7 @@ const TopUp = () => {
   };
 
   return (
-    <Container className="mt-5 pt-5">
-      {/* Greeting and Balance Section */}
+    <Container  style={{marginTop : '8rem'}}>
       <Row className="mb-4 col-lg-12">
         <Col lg={4} className="d-flex flex-column align-items-start">
           <img
