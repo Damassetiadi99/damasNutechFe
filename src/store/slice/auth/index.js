@@ -1,4 +1,4 @@
-import { submitRegisterThunk, submitLoginThunk,getProfileThunk} from "../../action/auth";
+import { submitRegisterThunk, submitLoginThunk, logOutThunk,getProfileThunk} from "../../action/auth";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -11,6 +11,11 @@ const initialState = {
     isLoginSuccess : false,
     isLoadingLogin : false,
     loginError : {},
+
+    logout : {},
+    isLogoutSucces : false,
+    isLoadingLogout : false,
+    logoutError : {},
 
     getProfile : {},
     isgetProfileSuccess : false ,
@@ -66,6 +71,20 @@ export const authSlice = createSlice({
           state.isLoadinggetProfile = false;
           state.getProfileError = action.payload;
           state.isgetProfileSuccess = false;
+        })
+        .addCase(logOutThunk.fulfilled, (state, action) => {
+          state.isLoadingLogout = false;
+          state.logout = action.payload;
+          state.isLogoutSucces = true;
+        })
+        .addCase(logOutThunk.pending, (state) => {
+          state.isLoadingLogout = true;
+          state.isLogoutSucces = false;
+        })
+        .addCase(logOutThunk.rejected, (state, action) => {
+          state.isLoadingLogout = false;
+          state.logout = action.payload;
+          state.isLogoutSucces = false;
         })
         
     },

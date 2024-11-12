@@ -82,7 +82,7 @@ const Transactions = ({transaction}) => {
           </Card>
         </Col>
       </Row>
-        <p className='fw-bold fs-7'>Semua Transactions </p>
+        <p className='fw-bold fs-7'>Semua Transaksi </p>
         <Row>
         {Array.isArray(getTransactionH?.records) && 
           getTransactionH.records.slice(0, limit).map((transaction) => (

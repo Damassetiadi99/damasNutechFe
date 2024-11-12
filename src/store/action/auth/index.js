@@ -46,3 +46,16 @@ export const submitRegisterThunk = createAsyncThunk(
     }
   );
   
+  export const logOutThunk = createAsyncThunk(
+    "auth/logout",
+    async(_,{rejectWithValue}) => {
+      try{
+        Cookies.remove('token')
+        localStorage.removeItem('user')
+        return true;
+      }
+      catch (e){
+        return rejectWithValue(e.message)
+      }
+    }
+  )
