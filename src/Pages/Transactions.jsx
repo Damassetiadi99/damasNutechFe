@@ -33,7 +33,6 @@ const Transactions = ({transaction}) => {
 
   return (
     <Container className='p-4'  style={{marginTop : '8rem'}}>
-      {/* Greeting and Balance Section */}
       <Row className="mb-4 col-lg-12">
         <Col lg={4} className="d-flex flex-column align-items-start">
           <img

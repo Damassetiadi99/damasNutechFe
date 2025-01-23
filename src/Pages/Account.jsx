@@ -62,19 +62,29 @@ const Profile = () => {
     return (
         <Container  style={{marginTop : '8rem'}}>
             <div className="text-center">
-                {/* Profile Image */}
                 <div className="position-relative d-inline-block">
                     <Card.Img 
                         variant="top" 
-                        src={getProfile.profile_image ?? profile1} 
+                        src={profile1} 
                         alt="Profile Image" 
                         style={{ height: '150px', width: '150px' }} 
                         className="mb-3 rounded-circle" 
                     />
-                    <div className="rounded-circle bg-danger">
-                        <label htmlFor="imageUpload" className="position-absolute" style={{ cursor: 'pointer', bottom: '40px', right: '20px' }}>
-                            <FaPen style={{ fontSize: '15px', color: '#007bff' }} />
-                        </label>
+                    <label 
+                        htmlFor="imageUpload" 
+                        className="position-absolute align-items-center justify-content-center bg-light rounded-circle shadow "
+                        style={{
+                            cursor: 'pointer',
+                            bottom: '0',
+                            right: '10px',
+                            height: '30px',
+                            width: '30px',
+                            marginBottom : '32px',
+                            marginRight : '-15px',
+                        }}
+                    >
+                        <FaPen className='text-dark' style={{ fontSize: '12px',}} />
+                    </label>
                         <input 
                             type="file" 
                             id="imageUpload" 
@@ -82,17 +92,16 @@ const Profile = () => {
                             style={{ display: 'none' }} 
                             onChange={handleImageChange} 
                         />
-                    </div>
                 </div>
                 <Card.Title>{getProfile.first_name +' '+ getProfile.last_name}</Card.Title>
 
                 <Form>
-                    <div className="mx-4">
+                    <div className="mx-4 my-4">
                         <span className="d-flex text-start my-2 fw-medium fs-7">Email</span>
                         <Form.Group className="mb-3 position-relative" controlId="email">
                             <FontAwesomeIcon 
                                 icon={faAt} 
-                                className="position-absolute top-50 start-0 translate-middle-y ms-4 mt-5" 
+                                className="position-absolute top-50 start-0 translate-middle-y ms-3 mx-auto " 
                                 style={{ zIndex: 1 }} 
                             />
                             <Form.Control
@@ -108,12 +117,12 @@ const Profile = () => {
                         </Form.Group>
                     </div>
 
-                    <div className="mx-4">
+                    <div className="mx-4 my-4   ">
                         <span className="d-flex text-start my-2 fw-medium fs-7">Nama Depan</span>
                         <Form.Group className="mb-3 position-relative">
                             <FontAwesomeIcon 
                                 icon={faUser} 
-                                className="position-absolute top-50 start-0 translate-middle-y ms-2" 
+                                className="position-absolute top-50 start-0 translate-middle-y ms-3" 
                                 style={{ zIndex: 1 }} 
                             />
                             <Form.Control
@@ -135,7 +144,7 @@ const Profile = () => {
                         <Form.Group className="mb-3 position-relative">
                             <FontAwesomeIcon 
                                 icon={faUser} 
-                                className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted" 
+                                className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" 
                                 style={{ zIndex: 1 }} 
                             />
                             <Form.Control
