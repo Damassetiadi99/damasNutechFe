@@ -26,6 +26,7 @@ export const submitRegisterThunk = createAsyncThunk(
           })
         );
         Cookies.set("token", response.data.token);
+        window.dispatchEvent(new Event("tokenUpdated"));
         return response;
       } catch (e) {
         return rejectWithValue(e);

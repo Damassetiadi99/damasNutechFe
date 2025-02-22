@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SIMS from '../assets/Logo.png';
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
-  const token = Cookies.get('token');
-  if (!token) return null;
+  const [token, setToken] = useState(Cookies.get("token"));
+
+  useEffect(() => {
+    // Function untuk update token ketika ada perubahan
+    const updateToken = () => {
+      setToken(Cookies.get("token"));
+    };
+
+    // Dengarkan event perubahan token
+    window.addEventListener("tokenUpdated", updateToken);
+
+    return () => {
+      window.removeEventListener("tokenUpdated", updateToken);
+    };
+  }, []);
+
+  if (!token) return null; 
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-transparent fixed-top mb-5 border">
       <div className="container">

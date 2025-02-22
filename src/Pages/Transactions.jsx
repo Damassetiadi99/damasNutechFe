@@ -62,7 +62,7 @@ const Transactions = ({transaction}) => {
                   ))
                 )
               ) : (
-                <span>Loading...</span> // Menampilkan "Loading..." jika saldo belum tersedia
+                <span>Loading...</span> 
               )}
             </p>
             <div className="text-start">
@@ -88,7 +88,7 @@ const Transactions = ({transaction}) => {
             <Col key={transaction.id} className="mb-2" xs={12}>
               <div
                 className="border p-4 d-flex justify-content-between align-items-start rounded-2"
-                style={{ height: '100px' }} // Removed semicolon
+                style={{ height: '100px' }} 
               >
                 <div>
                   <p className={`fw-bold ${transaction?.transaction_type === 'TOPUP' ? 'text-success' : 'text-danger'}`}>
@@ -97,9 +97,9 @@ const Transactions = ({transaction}) => {
                   <p className="text-muted fw-lighter">
                       {new Date(transaction?.created_on).toLocaleDateString("id", {
                         weekday: "short",  
-                        year: "2-digit",   // 2-digit year (23)
-                        month: "long",     // Full month name (January, February)
-                        day: "numeric",    // Day of the month (1, 2, ..., 31)
+                        year: "2-digit",   
+                        month: "long",     
+                        day: "numeric",   
                       })}
                     </p>
                 </div>
@@ -121,3 +121,6 @@ const Transactions = ({transaction}) => {
 };
 
 export default Transactions;
+
+
+
